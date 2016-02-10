@@ -25,6 +25,7 @@ class DefaultController extends Controller
      */
     public function aboutAction($name)
     {
+        $user = null;
         if ($name) {
             $user = $this->getDoctrine()
                 ->getRepository('AppBundle:User')

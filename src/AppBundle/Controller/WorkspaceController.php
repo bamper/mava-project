@@ -16,6 +16,9 @@ class WorkspaceController extends Controller
     public function showAction($name)
     {
         // ToDO: find workspace projects via given workspace name
+
         return $this->render('workspace/show.html.twig', array('project' => 'Symfony book'));
+
+
     }
 }

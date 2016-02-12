@@ -1,12 +1,12 @@
 <?php
 
 namespace AppBundle\DataFixtures\ORM;
-
-use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
+use Doctrine\Common\DataFixtures\AbstractFixture;
+use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use AppBundle\Entity\User;
 
-class LoadUsers implements FixtureInterface
+class LoadUsers extends AbstractFixture implements OrderedFixtureInterface
 {
     public function load(ObjectManager $manager)
     {
@@ -21,7 +21,13 @@ class LoadUsers implements FixtureInterface
         $user2->setBio('He is a cool guy too');
         $user2->setEmail('jack@mava.info');
         $manager->persist($user2);
-
+        $this->addReference('user-john', $user1);
+        $this->addReference('user-jack', $user2);
         $manager->flush();
+    }
+
+    public function getOrder()
+    {
+        return 30; // the order in which fixtures will be loaded
     }
 }

@@ -7,3 +7,10 @@ modules:
     enabled:
         - Asserts
         - \Helper\Unit
+        - Db
+        - Symfony2:
+            app_path: 'app'
+            var_path: 'var'
+            environment: 'test'
+        - Doctrine2:
+            depends: Symfony2

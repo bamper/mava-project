@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Project
  *
- * @ORM\Table(name="project", indexes={@ORM\Index(name="fk_project_idx", columns={"workspace_id"})})
+ * @ORM\Table(name="mava_project", indexes={@ORM\Index(name="fk_project_idx", columns={"workspace_id"})})
  * @ORM\Entity(repositoryClass="AppBundle\Entity\ProjectRepository")
  */
 class Project

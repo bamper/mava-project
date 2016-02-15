@@ -12,7 +12,7 @@ class WorkspaceControllerCest
     }
 
     // tests
-    public function testShowAction(FunctionalTester $I)
+    public function testIndexAction(FunctionalTester $I)
     {
         $I->wantTo('too see inside the "Writing" workspace');
         $I->amOnPage('/workspace/writing');

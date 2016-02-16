@@ -20,4 +20,4 @@ modules:
             password: 'illuminati'
             dump: tests/_data/dump.sql
             populate: true # dump will be loaded before the test suite is started
-            cleanup: false  # dump will be reloaded after each test
+            cleanup: true  # dump will be reloaded after each test

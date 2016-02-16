@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Feb 15, 2016 at 03:12 PM
+-- Generation Time: Feb 16, 2016 at 10:55 AM
 -- Server version: 5.5.47-0ubuntu0.14.04.1
 -- PHP Version: 5.5.9-1ubuntu4.14
 
@@ -19,6 +19,9 @@ SET time_zone = "+00:00";
 --
 -- Database: `mava_test`
 --
+
+-- --------------------------------------------------------
+
 --
 -- Table structure for table `mava_project`
 --
@@ -33,20 +36,27 @@ CREATE TABLE IF NOT EXISTS `mava_project` (
   KEY `fk_project_idx` (`workspace_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
-
 -- --------------------------------------------------------
+
 --
--- Table structure for table `mava_workspace`
+-- Table structure for table `mava_task`
 --
 
-CREATE TABLE IF NOT EXISTS `mava_workspace` (
+CREATE TABLE IF NOT EXISTS `mava_task` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(45) COLLATE utf8_unicode_ci NOT NULL,
+  `project_id` int(11) DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `title` varchar(45) COLLATE utf8_unicode_ci NOT NULL,
   `description` tinytext COLLATE utf8_unicode_ci NOT NULL,
-  PRIMARY KEY (`id`)
+  `due_date` datetime NOT NULL,
+  `attachment` tinyint(1) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_task_1_idx` (`project_id`),
+  KEY `fk_task_2_idx` (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
+
 --
 -- Table structure for table `mava_user`
 --
@@ -76,28 +86,16 @@ CREATE TABLE IF NOT EXISTS `mava_user` (
 
 -- --------------------------------------------------------
 
-
 --
--- Table structure for table `mava_task`
+-- Table structure for table `mava_workspace`
 --
 
-CREATE TABLE IF NOT EXISTS `mava_task` (
+CREATE TABLE IF NOT EXISTS `mava_workspace` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `project_id` int(11) DEFAULT NULL,
-  `user_id` int(11) DEFAULT NULL,
-  `title` varchar(45) COLLATE utf8_unicode_ci NOT NULL,
+  `name` varchar(45) COLLATE utf8_unicode_ci NOT NULL,
   `description` tinytext COLLATE utf8_unicode_ci NOT NULL,
-  `due_date` datetime NOT NULL,
-  `attachment` tinyint(1) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `fk_task_1_idx` (`project_id`),
-  KEY `fk_task_2_idx` (`user_id`)
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
-
-
 
 --
 -- Constraints for dumped tables
@@ -113,8 +111,8 @@ ALTER TABLE `mava_project`
 -- Constraints for table `mava_task`
 --
 ALTER TABLE `mava_task`
-  ADD CONSTRAINT `FK_D20DB7B5A76ED395` FOREIGN KEY (`user_id`) REFERENCES `mava_user` (`id`),
-  ADD CONSTRAINT `FK_D20DB7B5166D1F9C` FOREIGN KEY (`project_id`) REFERENCES `mava_project` (`id`);
+  ADD CONSTRAINT `FK_D20DB7B5166D1F9C` FOREIGN KEY (`project_id`) REFERENCES `mava_project` (`id`),
+  ADD CONSTRAINT `FK_D20DB7B5A76ED395` FOREIGN KEY (`user_id`) REFERENCES `mava_user` (`id`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

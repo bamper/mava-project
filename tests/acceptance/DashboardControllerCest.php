@@ -15,7 +15,7 @@ class DashboardControllerCest
     public function testShowAction(AcceptanceTester $I)
     {
         $I->wantTo('too see inside the dashboard area');
-        $I->amOnPage('/dashbaord');
+        $I->amOnPage('/dashboard');
         $I->see('a placeholder for dashboard');
         $I->wait(3);
     }

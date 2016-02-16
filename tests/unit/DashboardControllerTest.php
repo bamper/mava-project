@@ -17,7 +17,7 @@ class DashboardControllerTest extends \Codeception\TestCase\Test
     }
 
     // tests
-    public function testShowAction()
+    public function testIndexAction()
     {
         $this->tester->amOnRoute('dashboard_index');
         $this->tester->seeResponseContains('This is a placeholder for dashboard area.');

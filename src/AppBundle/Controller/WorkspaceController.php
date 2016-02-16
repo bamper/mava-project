@@ -9,11 +9,12 @@ use Symfony\Component\HttpFoundation\Response;
 /**
  * Class WorkspaceController
  * @package AppBundle\Controller
+ * @Route("/dashboard/workspace")
  */
 class WorkspaceController extends Controller
 {
     /**
-     * @Route("/workspace/{name}", name="workspace_show")
+     * @Route("/{name}", name="workspace_show")
      * @param $name
      * @return Response
      * @internal param $workspace

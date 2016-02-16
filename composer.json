@@ -29,10 +29,11 @@
         "incenteev/composer-parameter-handler": "^2.0",
         "doctrine/doctrine-fixtures-bundle": "2.3.0",
         "codeception/codeception": "^2.1",
-        "friendsofsymfony/user-bundle": "dev-master"
+        "friendsofsymfony/user-bundle": "dev-master",
+        "sensio/generator-bundle": "dev-master",
+        "sonata-project/admin-bundle": "dev-master"
     },
     "require-dev": {
-        "sensio/generator-bundle": "^3.0",
         "symfony/phpunit-bridge": "^2.7"
     },
     "scripts": {

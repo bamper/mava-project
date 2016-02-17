@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Workspace
  *
- * @ORM\Table(name="workspace")
+ * @ORM\Table(name="mava_workspace")
  * @ORM\Entity(repositoryClass="AppBundle\Entity\WorkspaceRepository")
  */
 class Workspace

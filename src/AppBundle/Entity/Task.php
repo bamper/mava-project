@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Task
  *
- * @ORM\Table(name="task", indexes={@ORM\Index(name="fk_task_1_idx", columns={"project_id"}), @ORM\Index(name="fk_task_2_idx", columns={"user_id"})})
+ * @ORM\Table(name="mava_task", indexes={@ORM\Index(name="fk_task_1_idx", columns={"project_id"}), @ORM\Index(name="fk_task_2_idx", columns={"user_id"})})
  * @ORM\Entity(repositoryClass="AppBundle\Entity\TaskRepository")
  */
 class Task

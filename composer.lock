@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "487e279749adf844b2f297d4da9bf6ed",
-    "content-hash": "e12c785b244db880c2e1247ba032c9bc",
+    "hash": "6f9dc207ca8ae537c76fc391ac114acc",
+    "content-hash": "5583a55f33f4485372ea5bea4cddc6b9",
     "packages": [
         {
             "name": "cocur/slugify",
@@ -2810,7 +2810,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataAdminBundle/zipball/e8f3766bfbb8ba864831e4bff919ff858311b5dc",
+                "url": "https://api.github.com/repos/sonata-project/SonataAdminBundle/zipball/0e12021c04c15385a93104c7a6cf67034ae6537b",
                 "reference": "e8f3766bfbb8ba864831e4bff919ff858311b5dc",
                 "shasum": ""
             },
@@ -3084,6 +3084,80 @@
                 "sonata"
             ],
             "time": "2015-11-26 19:14:27"
+        },
+        {
+            "name": "sonata-project/doctrine-orm-admin-bundle",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sonata-project/SonataDoctrineORMAdminBundle.git",
+                "reference": "e8eb83f7dc5b64113892cbf7367705864c651691"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sonata-project/SonataDoctrineORMAdminBundle/zipball/e8eb83f7dc5b64113892cbf7367705864c651691",
+                "reference": "e8eb83f7dc5b64113892cbf7367705864c651691",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/orm": "~2.3",
+                "sonata-project/admin-bundle": "~2.4@dev",
+                "sonata-project/core-bundle": "~2.3,>=2.3.1",
+                "sonata-project/exporter": "~1.3,>=1.3.1",
+                "symfony/console": "~2.3|~3.0",
+                "symfony/doctrine-bridge": "~2.2|~3.0",
+                "symfony/form": "~2.3|~3.0",
+                "symfony/framework-bundle": "~2.2|~3.0",
+                "symfony/security": "~2.3|~3.0",
+                "symfony/security-acl": "~2.2|~3.0@dev"
+            },
+            "provide": {
+                "sonata-project/admin-bundle-persistency-layer": "1.0.0"
+            },
+            "require-dev": {
+                "fabpot/php-cs-fixer": "~0.1|~1.0",
+                "simplethings/entity-audit-bundle": "~0.1",
+                "symfony/phpunit-bridge": "~2.7|~3.0"
+            },
+            "suggest": {
+                "simplethings/entity-audit-bundle": "If you want to support for versioning of entities and their associations."
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.4.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Sonata\\DoctrineORMAdminBundle\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Sonata Community",
+                    "homepage": "https://github.com/sonata-project/SonataDoctrineORMAdminBundle/contributors"
+                },
+                {
+                    "name": "Thomas Rabaix",
+                    "email": "thomas.rabaix@sonata-project.org",
+                    "homepage": "https://sonata-project.org"
+                }
+            ],
+            "description": "Symfony Sonata / Integrate Doctrine ORM into the SonataAdminBundle",
+            "homepage": "https://sonata-project.org/bundles/admin",
+            "keywords": [
+                "Admin Generator",
+                "admin",
+                "bootstrap",
+                "generator",
+                "sonata"
+            ],
+            "time": "2016-01-24 12:24:43"
         },
         {
             "name": "sonata-project/exporter",
@@ -3964,7 +4038,8 @@
     "stability-flags": {
         "friendsofsymfony/user-bundle": 20,
         "sensio/generator-bundle": 20,
-        "sonata-project/admin-bundle": 20
+        "sonata-project/admin-bundle": 20,
+        "sonata-project/doctrine-orm-admin-bundle": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

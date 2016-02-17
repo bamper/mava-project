@@ -31,7 +31,8 @@
         "codeception/codeception": "^2.1",
         "friendsofsymfony/user-bundle": "dev-master",
         "sensio/generator-bundle": "dev-master",
-        "sonata-project/admin-bundle": "dev-master"
+        "sonata-project/admin-bundle": "dev-master",
+        "sonata-project/doctrine-orm-admin-bundle": "dev-master"
     },
     "require-dev": {
         "symfony/phpunit-bridge": "^2.7"

@@ -35,7 +35,9 @@
         "sonata-project/doctrine-orm-admin-bundle": "dev-master"
     },
     "require-dev": {
-        "symfony/phpunit-bridge": "^2.7"
+        "symfony/phpunit-bridge": "^2.7",
+        "hautelook/alice-bundle": "^1.2",
+        "doctrine/data-fixtures": "^1.1"
     },
     "scripts": {
         "post-install-cmd": [

@@ -4,8 +4,13 @@ parameters:
 #    parameter_name: value
 
 services:
-    admin.category:
+    admin.workspace:
         class: AppBundle\Admin\WorkspaceAdmin
         arguments: [~, AppBundle\Entity\Workspace, ~]
         tags:
             - { name: sonata.admin, manager_type: orm, label: Workspace }
+    admin.project:
+        class: AppBundle\Admin\ProjectAdmin
+        arguments: [~, AppBundle\Entity\Project, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Project }

@@ -28,11 +28,17 @@
         "sensio/framework-extra-bundle": "^3.0.2",
         "incenteev/composer-parameter-handler": "^2.0",
         "doctrine/doctrine-fixtures-bundle": "2.3.0",
-        "codeception/codeception": "^2.1"
+        "codeception/codeception": "^2.1",
+        "friendsofsymfony/user-bundle": "dev-master",
+        "sensio/generator-bundle": "dev-master",
+        "sonata-project/admin-bundle": "dev-master",
+        "sonata-project/doctrine-orm-admin-bundle": "dev-master",
+        "sonata-project/datagrid-bundle": "dev-master"
     },
     "require-dev": {
-        "sensio/generator-bundle": "^3.0",
-        "symfony/phpunit-bridge": "^2.7"
+        "symfony/phpunit-bridge": "^2.7",
+        "hautelook/alice-bundle": "^1.2",
+        "doctrine/data-fixtures": "^1.1"
     },
     "scripts": {
         "post-install-cmd": [

@@ -37,7 +37,8 @@
         "mopa/bootstrap-bundle": "^3.0",
         "twbs/bootstrap": "^3.3",
         "knplabs/knp-paginator-bundle": "^2.5",
-        "twbs/bootstrap-sass": "^3.3"
+        "twbs/bootstrap-sass": "^3.3",
+        "symfony/assetic-bundle": "^2.7"
     },
     "require-dev": {
         "symfony/phpunit-bridge": "^2.7",

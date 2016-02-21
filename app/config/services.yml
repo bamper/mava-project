@@ -14,3 +14,7 @@ services:
         arguments: [~, AppBundle\Entity\Project, ~]
         tags:
             - { name: sonata.admin, manager_type: orm, label: Project }
+    mava_user.profile.form.type:
+        class: AppBundle\Form\ProfileType
+        tags:
+            - { name: form.type, alias: mava_user_profile }

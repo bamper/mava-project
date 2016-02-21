@@ -78,3 +78,19 @@ sonata_block:
         # enable the SonataAdminBundle block
         sonata.admin.block.admin_list:
             contexts: [admin]
+#sonata_user:
+#    profile:
+#        form:
+#            type:    mava_user_profile
+#sonata_admin:
+#    title:      MAVA v1.0
+#    title_logo: img/mava_logo.png
+assetic:
+    debug:          '%kernel.debug%'
+    use_controller: '%kernel.debug%'
+    filters:
+        cssrewrite: ~
+        less:
+            node: /usr/bin/node
+            node_paths: [/usr/lib/node_modules]
+            apply_to: "\.less$"

@@ -2,42 +2,18 @@
 {% block title 'MAVA' %}
 {% block head %}
     <link rel="icon" sizes="16x16" href="{{ asset('favicon.ico') }}" />
-    {% if app.environment == 'prod' %}
-        {# Compile all CSS into 1 file #}
         {% stylesheets
         '@bootstrap_css'
         '@mava_css'
         output='css/compiled/main.css' %}
         <link rel="stylesheet" href="{{ asset_url }}" />
         {% endstylesheets %}
-    {% else %}
-        {# Ask Assetic to generate the files individually #}
-        {% stylesheets '@bootstrap_css'
-        output='css/bootstrap.css' %}
-        <link rel="stylesheet" href="{{ asset_url }}" />
-        {% endstylesheets %}
-        {% stylesheets '@mava_css' output='css/mava.css' %}
-        <link rel="stylesheet" href="{{ asset_url }}" />
-        {% endstylesheets %}
-    {% endif %}
 {% endblock %}
 {% block javascripts %}
-    {% if app.environment == 'prod' %}
-        {# Compile all JS into 1 file #}
         {% javascripts
         '@jquery'
         '@bootstrap_js'
         output='js/compiled/main.js' %}
         <script src="{{ asset_url }}"></script>
         {% endjavascripts %}
-    {% else %}
-        {# Ask Assetic to generate the files  individually #}
-        {% javascripts '@jquery' output='js/jquery.js' %}
-        {% endjavascripts %}
-        {% javascripts '@bootstrap_js' output='js/bootstrap.js' %}
-        {% endjavascripts %}
-        {# Reference the generated files #}
-        <script src="{{ asset('js/jquery.js') }}"></script>
-        <script src="{{ asset('js/bootstrap.js') }}"></script>
-    {% endif %}
 {% endblock %}

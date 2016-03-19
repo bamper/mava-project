@@ -18,3 +18,6 @@ services:
         class: AppBundle\Form\ProfileType
         tags:
             - { name: form.type, alias: mava_user_profile }
+
+    fos_user.entity_manager:
+        alias: fos_user.object_manager

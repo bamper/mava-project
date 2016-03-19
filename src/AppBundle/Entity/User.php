@@ -3,7 +3,11 @@
 
 namespace AppBundle\Entity;
 
-use FOS\UserBundle\Model\User as BaseUser;
+//use FOS\UserBundle\Model\User as BaseUser;
+//use Sonata\UserBundle\Model\User as BaseUser;
+//use Sonata\UserBundle\Entity\User as BaseUser;
+use Sonata\UserBundle\Entity\BaseUser;
+
 use Doctrine\ORM\Mapping as ORM;
 
 /**

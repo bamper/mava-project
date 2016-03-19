@@ -40,7 +40,11 @@ twig:
 
 # Doctrine Configuration
 doctrine:
+doctrine:
+
     dbal:
+        types:
+            json: Sonata\Doctrine\Types\JsonType
         driver:   pdo_mysql
         host:     "%database_host%"
         port:     "%database_port%"
@@ -55,11 +59,18 @@ doctrine:
         #   3. Uncomment next line:
         #     path:     "%database_path%"
 
-    orm:
-        auto_generate_proxy_classes: "%kernel.debug%"
-        naming_strategy: doctrine.orm.naming_strategy.underscore
-        auto_mapping: true
+#    orm:
+#        auto_generate_proxy_classes: "%kernel.debug%"
+#        naming_strategy: doctrine.orm.naming_strategy.underscore
+#        auto_mapping: true
 
+    orm:
+        entity_managers:
+            default:
+                mappings:
+                    FOSUserBundle: ~
+                    AppBundle: ~
+                    SonataUserBundle: ~
 # Swiftmailer Configuration
 swiftmailer:
     transport: "%mailer_transport%"
@@ -68,29 +79,160 @@ swiftmailer:
     password:  "%mailer_password%"
     spool:     { type: memory }
 
-fos_user:
-    db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
-    firewall_name: main
-    user_class: AppBundle\Entity\User
+
 sonata_block:
     default_contexts: [cms]
     blocks:
         # enable the SonataAdminBundle block
         sonata.admin.block.admin_list:
             contexts: [admin]
-#sonata_user:
-#    profile:
-#        form:
-#            type:    mava_user_profile
+        sonata.user.block.menu:    # used to display the menu in profile pages
+        sonata.user.block.account: # used to display menu option (login option)
+        sonata.block.service.text: # used to if you plan to use Sonata user routes
+
 #sonata_admin:
 #    title:      MAVA v1.0
 #    title_logo: img/mava_logo.png
+
+sonata_user:
+    security_acl:           false
+    manager_type: orm # Can be orm or mongodb
+
+    class:                  # Entity Classes
+        user:               AppBundle\Entity\User
+        group:              AppBundle\Entity\Group
+#
+#    admin:                  # Admin Classes
+#        user:
+#            class:          Sonata\UserBundle\Admin\Entity\UserAdmin
+#            controller:     SonataAdminBundle:CRUD
+#            translation:    SonataUserBundle
+#
+#        group:
+#            class:          Sonata\UserBundle\Admin\Entity\GroupAdmin
+#            controller:     SonataAdminBundle:CRUD
+#            translation:    SonataUserBundle
+
+fos_user:
+    db_driver:      orm # can be orm or odm
+    firewall_name:  main
+#    user_class:     Sonata\UserBundle\Entity\BaseUser
+    user_class: AppBundle\Entity\User
+    group:
+        group_class:   Sonata\UserBundle\Entity\BaseGroup
+#        group_manager: sonata.user.orm.group_manager
+#    service:
+#        user_manager:  sonata.user.orm.user_manager
+
+
 assetic:
     debug:          '%kernel.debug%'
     use_controller: '%kernel.debug%'
+    bundles:        [ ]
     filters:
         cssrewrite: ~
         less:
             node: /usr/bin/node
             node_paths: [/usr/lib/node_modules]
-            apply_to: "\.less$"
+#            apply_to: "\.less$"
+
+    assets:
+        mava_css:
+            inputs:
+                - %kernel.root_dir%/Resources/public/css/mava.css
+            filters:
+                - less
+                - cssrewrite
+            output: css/mava.css
+        mava_js:
+            inputs:
+                - %kernel.root_dir%/Resources/public/js/mava.js
+            output: js/mava.js
+        fontAwesome_css:
+            inputs:
+                - %kernel.root_dir%/Resources/public/font-awesome-4.1.0/css/font-awesome.css
+            filters:
+                - less
+                - cssrewrite
+            output: css/font-awesome.css
+        fontAwesome_eot:
+            inputs: %kernel.root_dir%/Resources/public/font-awesome-4.1.0/fonts/fontawesome-webfont.eot
+            output: fonts/fontawesome-webfont.eot
+        fontAwesome_svg:
+            inputs: %kernel.root_dir%/Resources/public/font-awesome-4.1.0/fonts/fontawesome-webfont.svg
+            output: fonts/fontawesome-webfont.svg
+        fontAwesome_ttf:
+            inputs: %kernel.root_dir%/Resources/public/font-awesome-4.1.0/fonts/fontawesome-webfont.ttf
+            output: fonts/fontawesome-webfont.ttf
+        fontAwesome_woff:
+            inputs: %kernel.root_dir%/Resources/public/font-awesome-4.1.0/fonts/fontawesome-webfont.woff
+            output: fonts/fontawesome-webfont.woff
+        FontAwesome_otf:
+            inputs: %kernel.root_dir%/Resources/public/font-awesome-4.1.0/fonts/FontAwesome.otf
+            output: fonts/FontAwesome.otf
+        metisMenu_css:
+            inputs:
+                - %kernel.root_dir%/Resources/public/css/plugins/metisMenu.css
+            filters:
+                - less
+                - cssrewrite
+            output: css/metisMenu.css
+        metisMenu_js:
+            inputs:
+                - %kernel.root_dir%/Resources/public/js/plugins/metisMenu.js
+            output: js/metisMenu.js
+        morris_css:
+            inputs:
+                - %kernel.root_dir%/Resources/public/css/plugins/morris.css
+            filters:
+                - less
+                - cssrewrite
+            output: css/morris.css
+        morris_js:
+            inputs:
+                - %kernel.root_dir%/Resources/public/js/plugins/morris/morris.js
+                - %kernel.root_dir%/Resources/public/js/plugins/morris/morris-data.js
+                - %kernel.root_dir%/Resources/public/js/plugins/morris/raphael.min.js
+            output: js/morris.js
+        bootstrap_fonts_eot:
+            inputs: %kernel.root_dir%/../vendor/twbs/bootstrap/fonts/glyphicons-halflings-regular.eot
+            output: fonts/glyphicons-halflings-regular.eot
+        bootstrap_fonts_svg:
+            inputs: %kernel.root_dir%/../vendor/twbs/bootstrap/fonts/glyphicons-halflings-regular.svg
+            output: fonts/glyphicons-halflings-regular.svg
+        bootstrap_fonts_ttf:
+            inputs: %kernel.root_dir%/../vendor/twbs/bootstrap/fonts/glyphicons-halflings-regular.ttf
+            output: fonts/glyphicons-halflings-regular.ttf
+        bootstrap_fonts_woff:
+            inputs: %kernel.root_dir%/../vendor/twbs/bootstrap/fonts/glyphicons-halflings-regular.woff
+            output: fonts/glyphicons-halflings-regular.woff
+        bootstrap_css:
+            inputs:
+                - %kernel.root_dir%/../vendor/twbs/bootstrap/less/bootstrap.less
+                - %kernel.root_dir%/../vendor/twbs/bootstrap/dist/css/bootstrap-theme.css
+            filters:
+                - less
+                - cssrewrite
+            output: css/bootstrap.css
+        bootstrap_js:
+            inputs:
+                - %kernel.root_dir%/../vendor/twbs/bootstrap/js/transition.js
+                - %kernel.root_dir%/../vendor/twbs/bootstrap/js/alert.js
+                - %kernel.root_dir%/../vendor/twbs/bootstrap/js/button.js
+                - %kernel.root_dir%/../vendor/twbs/bootstrap/js/carousel.js
+                - %kernel.root_dir%/../vendor/twbs/bootstrap/js/collapse.js
+                - %kernel.root_dir%/../vendor/twbs/bootstrap/js/dropdown.js
+                - %kernel.root_dir%/../vendor/twbs/bootstrap/js/modal.js
+                - %kernel.root_dir%/../vendor/twbs/bootstrap/js/tooltip.js
+                - %kernel.root_dir%/../vendor/twbs/bootstrap/js/popover.js
+                - %kernel.root_dir%/../vendor/twbs/bootstrap/js/scrollspy.js
+                - %kernel.root_dir%/../vendor/twbs/bootstrap/js/tab.js
+                - %kernel.root_dir%/../vendor/twbs/bootstrap/js/affix.js
+            output: js/bootstrap.js
+        jquery:
+            inputs:
+                - %kernel.root_dir%/Resources/public/js/jquery-2.2.2.min.js
+            output: js/jquery.js
+mopa_bootstrap:
+    form: ~  # Adds twig form theme  support
+    menu: ~  # enables twig helpers for menu

@@ -38,7 +38,9 @@
         "twbs/bootstrap": "^3.3",
         "knplabs/knp-paginator-bundle": "^2.5",
         "twbs/bootstrap-sass": "^3.3",
-        "symfony/assetic-bundle": "^2.7"
+        "symfony/assetic-bundle": "^2.7",
+        "sonata-project/user-bundle": "dev-add_support_for_fos_user2",
+        "friendsofsymfony/oauth-server-bundle": "dev-master"
     },
     "require-dev": {
         "symfony/phpunit-bridge": "^2.7",

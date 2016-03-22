@@ -7,6 +7,11 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 
 class Builder extends ContainerBuilder
 {
+    /**
+     * @param FactoryInterface $factory
+     * @param array $options
+     * @return \Knp\Menu\ItemInterface
+     */
     public function topMenu(FactoryInterface $factory, array $options)
     {
         $menu = $factory->createItem('root');
@@ -33,6 +38,38 @@ class Builder extends ContainerBuilder
         // Create a dropdown header
         $dropdown2->addChild('notifications', array('dropdown-header' => true))
             ->setAttribute('divider_append', true);
+        return $menu;
+    }
+
+    /**
+     * @param FactoryInterface $factory
+     * @param array $options
+     * @return \Knp\Menu\ItemInterface
+     */
+    public function sideMenu(FactoryInterface $factory, array $options)
+    {
+        // Menu will be a navbar menu anchored to right
+        $menu = $factory->createItem('root');
+        $menu->setChildrenAttribute('id', 'side-menu');
+        $menu->setChildrenAttribute('class', 'nav');
+        // Create a dropdown with a caret
+        $menu->addChild('Dashboard', array(
+            'icon' => 'dashboard',
+            'route' => 'dashboard_index'
+        ));
+        // Create a dropdown header
+        $dropdown = $menu->addChild('Project', array(
+            'icon'  => 'tasks',
+            'dropdown' => true,
+            'caret' => true,
+        ));
+        $dropdown->setChildrenAttribute('class', 'nav nav-second-level');
+        $dropdown->addChild("Project1", array('uri' => '#'));
+        $dropdown->addChild("Project2", array('uri' => '#'));
+        $menu->addChild('Team', array(
+            'icon' => 'users',
+            'uri'  => '#',
+        ));
         return $menu;
     }
 }

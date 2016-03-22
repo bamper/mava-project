@@ -90,9 +90,9 @@ sonata_block:
         sonata.user.block.account: # used to display menu option (login option)
         sonata.block.service.text: # used to if you plan to use Sonata user routes
 
-#sonata_admin:
-#    title:      MAVA v1.0
-#    title_logo: img/mava_logo.png
+sonata_admin:
+    title:      MAVA v1.0
+    title_logo: img/mava-logo-small.png
 
 sonata_user:
     security_acl:           false
@@ -112,7 +112,12 @@ sonata_user:
 #            class:          Sonata\UserBundle\Admin\Entity\GroupAdmin
 #            controller:     SonataAdminBundle:CRUD
 #            translation:    SonataUserBundle
-
+#    profile:  # Profile Form (firstname, lastname, etc ...)
+#        form:
+#            type:               sonata_user_profile
+#            handler:            sonata.user.profile.form.handler.default
+#            name:               sonata_user_profile_form
+#            validation_groups:  [Profile]
 fos_user:
     db_driver:      orm # can be orm or odm
     firewall_name:  main
@@ -123,7 +128,12 @@ fos_user:
 #        group_manager: sonata.user.orm.group_manager
 #    service:
 #        user_manager:  sonata.user.orm.user_manager
-
+#    profile:  # Authentication Form
+#        form:
+#            type:               fos_user_profile
+#            handler:            fos_user.profile.form.handler.default
+#            name:               fos_user_profile_form
+#            validation_groups:  [Authentication]
 
 assetic:
     debug:          '%kernel.debug%'

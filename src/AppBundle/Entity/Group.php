@@ -7,7 +7,9 @@
  */
 
 namespace AppBundle\Entity;
+//use Sonata\UserBundle\Entity\BaseGroup;
 use Sonata\UserBundle\Entity\BaseGroup;
+
 use Doctrine\ORM\Mapping as ORM;
 
 /**

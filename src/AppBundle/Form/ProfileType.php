@@ -3,28 +3,39 @@
 namespace AppBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
+
+
 class ProfileType extends AbstractType
 {
+    /**
+     * @param FormBuilderInterface $builder
+     * @param array $options
+     */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('firstname', null, array(
+            ->add('firstname', TextType::class, array(
                 'label'    => 'form.label_firstname',
                 'required' => true
             ))
-            ->add('lastname', null, array(
+            ->add('lastname', TextType::class, array(
                 'label'    => 'form.label_lastname',
                 'required' => true
             ))
-            ->add('biography', 'textarea', array(
+            ->add('biography', TextareaType::class, array(
                 'label'    => 'form.label_biography',
                 'required' => true
             ));
     }
 
+    /**
+     * @param OptionsResolver $resolver
+     */
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
@@ -34,6 +45,9 @@ class ProfileType extends AbstractType
         ));
     }
 
+    /**
+     * @return string
+     */
     public function getName()
     {
         return 'mava_user_profile';

@@ -7,16 +7,16 @@ sonata_user_security:
     resource: "@SonataUserBundle/Resources/config/routing/sonata_security_2.xml"
 sonata_user_resetting:
     resource: "@SonataUserBundle/Resources/config/routing/sonata_resetting_2.xml"
-    prefix: /resetting
+    prefix: dashboard/resetting
 sonata_user_profile:
     resource: "@SonataUserBundle/Resources/config/routing/sonata_profile_2.xml"
-    prefix: /profile
+    prefix: dashboard/profile
 sonata_user_register:
     resource: "@SonataUserBundle/Resources/config/routing/sonata_registration_2.xml"
-    prefix: /register
+    prefix: dashboard/register
 sonata_user_change_password:
     resource: "@SonataUserBundle/Resources/config/routing/sonata_change_password_2.xml"
-    prefix: /profile
+    prefix: dashboard/profile
 sonata_user_admin_security:
     resource: '@SonataUserBundle/Resources/config/routing/admin_security.xml'
     prefix: /admin

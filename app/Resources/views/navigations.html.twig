@@ -1,9 +1,15 @@
-<!-- /.navbar-header -->
-{{ mopa_bootstrap_menu('AppBundle:Builder:topMenu') }}
-<div class="navbar-default sidebar" role="navigation">
-{# a place holder for future side menu
-<div class="sidebar-nav navbar-collapse">
-    {{ mopa_bootstrap_menu('AppBundle:Builder:sideMenu') }}
+<div class="row">
+    <div class="span12 col-lg-12">
+        {{ mopa_bootstrap_menu('AppBundle:Builder:topMenu') }}
+    </div>
 </div>
-#}
+<div class="row">
+    <div class="span12 col-lg-2">
+
+    <div class="navbar-default sidebar" role="navigation">
+        <div class="sidebar-nav navbar-collapse">
+            {{ mopa_bootstrap_menu('AppBundle:Builder:sideMenu') }}
+        </div>
+    </div>
+    </div>
 </div>

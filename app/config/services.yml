@@ -21,3 +21,7 @@ services:
 
     fos_user.entity_manager:
         alias: fos_user.object_manager
+    notifier.listener:
+       class: AppBundle\EventListener\Notifier
+       tags:
+         - { name: doctrine.event_listener, event: postPersist }

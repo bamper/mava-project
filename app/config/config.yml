@@ -9,7 +9,7 @@ parameters:
     locale: en
 
 framework:
-    #esi:             ~
+    esi:             ~
     translator:      { fallbacks: ["%locale%"] }
     secret:          "%secret%"
     router:
@@ -40,8 +40,6 @@ twig:
 
 # Doctrine Configuration
 doctrine:
-doctrine:
-
     dbal:
         types:
             json: Sonata\Doctrine\Types\JsonType
@@ -71,6 +69,13 @@ doctrine:
                     FOSUserBundle: ~
                     AppBundle: ~
                     SonataUserBundle: ~
+        metadata_cache_driver: apc
+        query_cache_driver: apc
+        result_cache_driver:
+        type: memcached
+        host: localhost
+        port: 11211
+        instance_class: Memcached
 # Swiftmailer Configuration
 swiftmailer:
     transport: "%mailer_transport%"

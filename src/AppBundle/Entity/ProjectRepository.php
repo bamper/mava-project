@@ -10,4 +10,17 @@ namespace AppBundle\Entity;
  */
 class ProjectRepository extends \Doctrine\ORM\EntityRepository
 {
+
+    public function getAllProjects($workSpace_id){
+        $q = $this->createQueryBuilder('p')
+            ->where('p.workspace = :workSpace_id')
+            ->setParameter('workSpace_id', $workSpace_id)
+            ->getQuery();
+        // this is where above DQL converted to a SQL and cached
+        $q->useQueryCache();
+        // this is where result will be cached and ready to be
+        // provided for the coming queries in the next 30 minutes
+        $q->useResultCache (true, 1800);
+        return $q->getResult();
+    }
 }
